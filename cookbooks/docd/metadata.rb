@@ -1,0 +1,7 @@
+name 'docd'
+maintainer 'Mike Martin'
+maintainer_email 'mike@unsupported.me'
+license 'mit'
+description 'Installs/Configures docd'
+long_description 'Installs/Configures docd'
+version '0.1.0'
