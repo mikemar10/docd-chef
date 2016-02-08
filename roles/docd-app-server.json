@@ -8,6 +8,7 @@
     "override_attributes": {
     },
     "run_list": [
-        "recipe[docd::packages]"
+        "recipe[docd::packages]",
+        "recipe[docd::ruby]"
     ]
 }

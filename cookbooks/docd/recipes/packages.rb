@@ -36,12 +36,14 @@ end
 
 packages_to_install = %w[
   build-essential
+  curl
   dstat
   git
   htop
   nginx
   postgresql-9.5
   vim
+  wget
 ]
 
 package packages_to_install do
