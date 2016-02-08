@@ -1,5 +1,18 @@
 lsb_release = node[:lsb][:codename]
 
+packages_to_install = %w[
+  build-essential
+  curl
+  dstat
+  git
+  htop
+  nginx
+  postgresql-9.5
+  runit
+  vim
+  wget
+]
+
 file '/etc/apt/sources.list.d/nginx.list' do
   content <<EOM
 deb http://ppa.launchpad.net/nginx/stable/ubuntu #{lsb_release} main 
@@ -33,18 +46,6 @@ execute 'update apt package index' do
   command 'apt-get update'
   action :nothing
 end
-
-packages_to_install = %w[
-  build-essential
-  curl
-  dstat
-  git
-  htop
-  nginx
-  postgresql-9.5
-  vim
-  wget
-]
 
 package packages_to_install do
   action :nothing
