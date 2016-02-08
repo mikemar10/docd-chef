@@ -53,7 +53,6 @@ end
 
 execute 'update apt package index' do
   command 'apt-get update'
-  action :execute
   not_if { 
     last_update = File.exist?(apt_lock_file) ? File.stat(apt_lock_file).atime : Time.now - (86400 * 2)
     Time.now - last_update <= 86400 
