@@ -1,4 +1,4 @@
-lsb_release = node[:lsb][:release]
+lsb_release = node[:lsb][:codename]
 
 file '/etc/apt/sources.list.d/nginx.list' do
   content <<EOM
@@ -35,11 +35,13 @@ execute 'update apt package index' do
 end
 
 packages_to_install = %w[
-  vim
-  htop
+  build-essential
   dstat
+  git
+  htop
   nginx
   postgresql-9.5
+  vim
 ]
 
 package packages_to_install do
