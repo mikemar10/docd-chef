@@ -1,5 +1,7 @@
 lsb_release = node[:lsb][:codename]
 
+apt_lock_file = '/var/lib/apt/periodic/update-success-stamp'
+
 packages_to_install = %w[
   build-essential
   curl
@@ -12,6 +14,13 @@ packages_to_install = %w[
   vim
   wget
 ]
+
+file '/etc/apt/apt.conf.d/15update-timestamp' do
+  content <<EOM
+APT::Update::Post-Invoke-Success {"touch #{apt_lock_file} 2>/dev/null || true";};
+EOM
+  user 'root'; group 'root'; mode 644
+end
 
 file '/etc/apt/sources.list.d/nginx.list' do
   content <<EOM
@@ -44,7 +53,11 @@ end
 
 execute 'update apt package index' do
   command 'apt-get update'
-  action :nothing
+  action :execute
+  not_if { 
+    last_update = File.exist?(apt_lock_file) ? File.stat(apt_lock_file).atime : Time.now - (86400 * 2)
+    Time.now - last_update <= 86400 
+  }
 end
 
 package packages_to_install do
