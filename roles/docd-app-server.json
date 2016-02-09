@@ -10,6 +10,7 @@
     "run_list": [
         "recipe[docd::packages]",
         "recipe[docd::ruby]",
+        "recipe[docd::gems]",
         "recipe[docd::services]"
     ]
 }
