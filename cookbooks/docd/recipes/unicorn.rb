@@ -3,6 +3,11 @@ cookbook_file '/home/docd/docd/shared/config/unicorn.rb' do
   user 'docd'; group 'docd'; mode '644'
 end
 
+directory '/var/log/unicorn' do
+  user 'root'; group 'root'; mode '755'
+  recursive true
+end
+
 # runit
 directory '/etc/service/docd_unicorn/log' do
   user 'root'; group 'root'; mode '755'
