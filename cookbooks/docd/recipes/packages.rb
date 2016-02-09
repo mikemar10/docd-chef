@@ -20,7 +20,7 @@ file '/etc/apt/apt.conf.d/15update-timestamp' do
   content <<EOM
 APT::Update::Post-Invoke-Success {"touch #{apt_lock_file} 2>/dev/null || true";};
 EOM
-  user 'root'; group 'root'; mode 644
+  user 'root'; group 'root'; mode '644'
 end
 
 file '/etc/apt/sources.list.d/nginx.list' do
@@ -28,7 +28,7 @@ file '/etc/apt/sources.list.d/nginx.list' do
 deb http://ppa.launchpad.net/nginx/stable/ubuntu #{lsb_release} main 
 deb-src http://ppa.launchpad.net/nginx/stable/ubuntu #{lsb_release} main 
 EOM
-  user 'root'; group 'root'; mode 644
+  user 'root'; group 'root'; mode '644'
   notifies :run, 'execute[import nginx repo key]', :immediately
   notifies :run, 'execute[update apt package index]', :delayed
 end
@@ -37,7 +37,7 @@ file '/etc/apt/sources.list.d/postgresql.list' do
   content <<EOM
 deb http://apt.postgresql.org/pub/repos/apt/ #{lsb_release}-pgdg main
 EOM
-  user 'root'; group 'root'; mode 644
+  user 'root'; group 'root'; mode '644'
   notifies :run, 'execute[import postgresql repo key]', :immediately
   notifies :run, 'execute[update apt package index]', :delayed
 end

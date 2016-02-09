@@ -11,7 +11,7 @@ stop on shutdown
 respawn
 exec /usr/sbin/runsvdir-start
 EOM
-  user 'root'; group 'root'; mode 644
+  user 'root'; group 'root'; mode '644'
 end
 
 services.each do |svc|
