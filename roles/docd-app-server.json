@@ -12,6 +12,7 @@
         "recipe[docd::users]",
         "recipe[docd::ruby]",
         "recipe[docd::gems]",
-        "recipe[docd::services]"
+        "recipe[docd::services]",
+        "recipe[docd::database]"
     ]
 }
