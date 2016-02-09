@@ -27,7 +27,7 @@ file '/etc/service/docd_unicorn/run' do
   content <<EOM
 #!/bin/bash
 set -ex
-exec chpst -u docd:docd -/ /home/docd/docd/current unicorn -c config/unicorn.rb
+exec chpst -u docd:docd unicorn -c config/unicorn.rb
 EOM
   user 'root'; group 'root'; mode '755'
 end
