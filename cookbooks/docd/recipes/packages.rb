@@ -8,6 +8,7 @@ packages_to_install = %w[
   dstat
   git
   htop
+  memcached
   nginx
   postgresql-9.5
   runit

@@ -1,4 +1,4 @@
-services = %w[nginx postgresql runsvdir]
+services = %w[memcached nginx postgresql runsvdir]
 
 file '/etc/init/runsvdir.conf' do
   content <<EOM
