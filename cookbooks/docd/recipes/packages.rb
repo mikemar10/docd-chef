@@ -7,7 +7,9 @@ packages_to_install = %w[
   curl
   dstat
   git
+  ghostscript
   htop
+  imagemagick
   libpq-dev
   memcached
   nginx
