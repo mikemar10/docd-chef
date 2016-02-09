@@ -11,6 +11,7 @@ packages_to_install = %w[
   libpq-dev
   memcached
   nginx
+  nodejs
   postgresql-9.5
   runit
   vim
