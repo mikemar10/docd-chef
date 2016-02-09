@@ -15,6 +15,7 @@
         "recipe[docd::services]",
         "recipe[docd::nginx]",
         "recipe[docd::database]",
-        "recipe[docd::rails]"
+        "recipe[docd::rails]",
+        "recipe[docd::unicorn]"
     ]
 }
